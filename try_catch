@@ -1,0 +1,51 @@
+using System;
+
+namespace hata_yonetimi
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int ax = 5; ;
+            decimal b;
+            b = ax;
+            try
+            {
+
+                Console.Write("Hello ! Please give a number... ! ");
+                int number = Convert.ToInt32((Console.ReadLine()));
+                Console.WriteLine("Your number is : " + number);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("issue  .. :" + ex.Message.ToString());
+            }
+            finally
+            {
+                Console.WriteLine("process completed");
+
+            }
+            try
+            {
+                //int a = int.Parse(null);
+                // int a = int.Parse("test");
+                int a = int.Parse("-2000000000000");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine("Your number is null ..." + ex);
+                
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine("Your value is not suitable.."+ex);
+            }
+            catch(OverflowException ex)
+            {
+                Console.WriteLine("Your value is not range" + ex);
+            }
+
+        }
+    }
+}
