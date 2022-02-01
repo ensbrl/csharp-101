@@ -1,0 +1,28 @@
+using System;
+
+namespace if_else_if
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int time = DateTime.Now.Hour;
+            if(time>=6 && time<11)
+            {
+                Console.WriteLine("Have a Good Morning !");
+            }
+            else if(time<=18)
+            {
+                Console.WriteLine("Have a Good Day !");
+            }
+            else
+            {
+                Console.WriteLine("Have a Good Night !");
+            }
+            string result = time <= 18 ? "İyi günler" : "İyi geceler";
+            result = time >= 6 && time < 11 ? "Günaydın" : time <= 18 ? "İyi günler " : "iyi geceler";
+            Console.WriteLine(result);
+
+        }
+    }
+}
