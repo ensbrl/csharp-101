@@ -1,0 +1,60 @@
+using System;
+
+namespace diziler2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] sayiDizisi = { 23, 4, 12, 86, 72, 3, 11, 17 };
+            Console.WriteLine("Sirasiz Dizi");
+            foreach (var s in sayiDizisi)
+            {
+                Console.WriteLine(s);
+            }
+            Console.WriteLine("Sirali Dizi");
+            Array.Sort(sayiDizisi);
+            foreach (var s in sayiDizisi)
+            {
+                Console.WriteLine(s);
+            }
+            //Clear
+            Console.WriteLine("******ARRAY CLEAR****");
+            //sayiDizisi nde 2.indexten itibaren 2 tane elemanı 0 ara atar;
+            Array.Clear(sayiDizisi,2,2);
+            foreach (var s in sayiDizisi)
+            {
+                Console.WriteLine(s);
+            }
+
+            //Reverse
+            Console.WriteLine("*****ARRAY REVERSE");
+            Array.Reverse(sayiDizisi);
+            foreach (var s in sayiDizisi)
+            {
+                Console.WriteLine(s);
+            }
+            //indexOf
+            Console.WriteLine("*******indexOf********");
+            Console.WriteLine(Array.IndexOf(sayiDizisi, 23));
+            try
+            {
+                sayiDizisi[8] = 99;
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("issue  .. :" + ex.Message.ToString());
+            }
+            //reSize
+            Console.WriteLine("******reSize******");
+            Array.Resize<int>(ref sayiDizisi, 9);
+            sayiDizisi[8] = 99;
+            foreach (var s in sayiDizisi)
+            {
+                Console.WriteLine(s);
+            }
+
+        }
+    }
+}
