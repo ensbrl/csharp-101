@@ -1,0 +1,96 @@
+using System;
+
+namespace rekursif
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Rekürsif-Öz Yİnelemeli
+            //3^4
+            int result=1;
+            for (int i = 1; i < 5; i++)
+            {
+                result = result * 3;
+            }
+            Console.WriteLine(result);
+            Islemler instance = new();
+            Console.WriteLine(instance.Expo(3, 4));
+            //Extension Metotlar
+            string ifade = "Enes Bİrol ad";
+            bool sonuc = ifade.CheckSpaces();
+            Console.WriteLine(sonuc);
+
+            if(sonuc)
+                Console.WriteLine(ifade.RemoveWhiteSpaces());
+
+            Console.WriteLine(ifade.ToUpper());
+            Console.WriteLine(ifade.ToLower());
+
+            int[] dizi = { 9, 3, 6, 5, 3, 2, 0 };
+
+            dizi.SortArray();
+            dizi.EkranaYazdirDizi();
+            int sayi1 = 5;
+            Console.WriteLine(sayi1.IsEvenNumber());
+            Console.WriteLine(ifade.GetFirstCharacter());
+
+        }
+       
+    }
+    public class Islemler
+    {
+        public int Expo(int sayi, int us)
+        {
+            if (us < 2)
+                return sayi;
+            return Expo(sayi, us - 1) * sayi;
+        }
+    }
+    public static class Extension
+    {
+        public static bool CheckSpaces(this string ifade)
+        {
+
+            return ifade.Contains(" ");
+        }
+        public static string RemoveWhiteSpaces(this string param)
+        {
+            string[] dizi = param.Split(" ");
+            return string.Join("*", dizi);
+        }
+        public static string MakeUpperCase(this string param)
+        {
+            return param.ToUpper();
+        }
+        public static string MakeLowerCase(this string param)
+        {
+            return param.ToLower();
+        }
+        public static int[] SortArray(this int[] param)
+        {
+            Array.Sort(param);
+            return param;
+        }
+        public static void EkranaYazdirDizi(this int[] param)
+        {
+            for (int i = 0; i < param.Length; i++)
+            {
+                Console.Write(param[i] + " ");
+            }
+            //
+            //foreach (var item in param)
+            //{
+            //    Console.Write(item+ " ");
+            //}
+        }
+        public static bool IsEvenNumber(this int param)
+        {
+            return param % 2 == 0;
+        }
+        public static string GetFirstCharacter(this string param)
+        {
+            return param.Substring(0, 1);
+        }
+    }
+}
