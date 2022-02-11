@@ -1,0 +1,35 @@
+using System;
+
+namespace metot_tanimlama
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            Metotlar ornek = new Metotlar();
+            ornek.EkranaYazdir("enes");
+            Console.WriteLine(Topla(5 , 9));
+            int top = ornek.ArttirVeTopla(5, 9);
+            Console.WriteLine(top);
+
+        }
+        static int Topla(int t, int t1)
+        {
+            return (t + t1);
+        }
+        class Metotlar
+        {
+            public void EkranaYazdir(string veri)
+            {
+                Console.WriteLine(veri);
+            }
+            public int ArttirVeTopla(int t,int t1)
+            {
+                t++;
+                t1++;
+                return (t + t1);
+            }
+        }
+    }
+}
