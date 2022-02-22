@@ -1,0 +1,70 @@
+using System;
+
+namespace string_metotlar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string degisken = "Welcome, We class is CSharp";
+            string degisken2 = "CSharp";
+            //Lenght
+            Console.WriteLine(degisken.Length);
+
+            //toUpper, toLower
+            Console.WriteLine(degisken.ToLower());
+            Console.WriteLine(degisken.ToUpper());
+
+            // COncat
+            Console.WriteLine(String.Concat(degisken,"Hello !"));
+
+            //Compare ,Compareto
+            Console.WriteLine(degisken.CompareTo(degisken2)); //0,1,-1
+            Console.WriteLine(String.Compare(degisken,degisken2,true)); //0,1,-1
+            Console.WriteLine(String.Compare(degisken, degisken2, false)); //0,1,-1
+
+            //Contains
+            Console.WriteLine(degisken.Contains(degisken2));
+            Console.WriteLine(degisken.EndsWith("CSharp"));
+            Console.WriteLine(degisken.StartsWith("CSharp"));
+
+            //indexof
+            Console.WriteLine(degisken.IndexOf("CS"));
+            Console.WriteLine(degisken.IndexOf("CaS"));
+
+            //insert
+            Console.WriteLine(degisken.Insert(0, "Merhaba "));
+            Console.WriteLine(degisken.LastIndexOf("i"));
+
+            //Padleft , PadRight
+
+            Console.WriteLine(degisken + degisken2.PadLeft(30,'*'));
+            Console.WriteLine(degisken + degisken2.PadRight(30, '*'));
+
+            //Remove
+
+            Console.WriteLine(degisken.Remove(10));
+            Console.WriteLine(degisken.Remove(5, 3));
+            Console.WriteLine(degisken.Remove(0, 1));
+
+            //Replace
+
+            Console.WriteLine(degisken.Replace("CSharp", "C#"));
+            Console.WriteLine(degisken.Replace(" ", "*"));
+
+
+            //Split
+
+            Console.WriteLine(degisken.Split(' ')[1]);
+
+            //SubString
+
+            Console.WriteLine(degisken.Substring(4));
+            Console.WriteLine(degisken.Substring(4,6));
+
+
+
+
+        }
+    }
+}
