@@ -1,0 +1,118 @@
+using System;
+using System.Collections.Generic;
+namespace generic_list
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //List <T> class
+            //System.Collections.Generic
+            //T--> object türündedir.
+
+            List<int> sayiListesi = new List<int> ();
+            sayiListesi.Add(23);
+            sayiListesi.Add(4);
+            sayiListesi.Add(92);
+            sayiListesi.Add(98);
+            
+            List<string> renkListesi = new List<string>();
+            renkListesi.Add("kirmizi");
+            renkListesi.Add("mavi");
+            renkListesi.Add("siyah");
+
+            //Count
+            Console.WriteLine(renkListesi.Count);
+            Console.WriteLine(sayiListesi.Count);
+
+            //Foreach ve List.Foreach ile elemanlara erişim
+            foreach (var sayi in sayiListesi)
+                Console.WriteLine(sayi);
+
+            foreach (var renk in renkListesi)
+                Console.WriteLine(renk);
+
+            sayiListesi.ForEach(sayi => Console.WriteLine(sayi));
+            renkListesi.ForEach(renk => Console.WriteLine(renk));
+
+            //listeden eleman çıkarma
+
+            sayiListesi.Remove(42);
+            renkListesi.Remove("mavi");
+            sayiListesi.ForEach(sayi => Console.WriteLine(sayi));
+            renkListesi.ForEach(renk => Console.WriteLine(renk));
+            renkListesi.RemoveAt(0);
+            renkListesi.ForEach(renk => Console.WriteLine(renk));
+
+            //liste içerisinde arama
+
+            if (sayiListesi.Contains(92))
+                Console.Write("eleman bulundu ");
+            //eleman ileindexe erişme
+
+            Console.WriteLine(renkListesi.BinarySearch("Siyah"));
+
+
+            //Diziyi List'e çevirme
+
+            string[] hayvanlar = { "kedi", "köpek", "kuş" };
+
+            List<string> hayvanListesi = new List<string>(hayvanlar);
+            hayvanListesi.ForEach(h => Console.WriteLine(h));
+
+
+            //Listeyi nasıl temizleriz
+
+            hayvanListesi.Clear();
+            hayvanListesi.ForEach(h => Console.WriteLine(h));
+
+
+            //Listiçerisinde nesne tutmak
+            List<Kullanicilar> kullaniciListesi = new List<Kullanicilar>();
+           
+            Kullanicilar kullanici1 = new Kullanicilar();
+            kullanici1.Isim = "Ayşe";
+            kullanici1.Soyad = "Yilmaz";
+            kullanici1.Yas = 29;
+
+            Kullanicilar kullanici2 = new Kullanicilar();
+            kullanici2.Isim = "Enes";
+            kullanici2.Soyad = "Birol";
+            kullanici2.Yas = 29;
+           
+            kullaniciListesi.Add(kullanici1);
+            kullaniciListesi.Add(kullanici2);
+
+            List<Kullanicilar> yeniListe = new List<Kullanicilar>();
+            yeniListe.Add(new Kullanicilar()
+            {
+                Isim = "enes",
+                Soyad = "birol",
+                Yas = 24
+            });
+
+            kullaniciListesi.ForEach(s => Console.WriteLine("Kullanıcı Adi" + s.Isim + "Kullanıcı Soyadı" + s.Soyad + "Kullanıcı yas" + s.Yas));
+
+            foreach (var k in yeniListe)
+            {
+                Console.WriteLine("Kullanıcı Adi" + k.Isim);
+                Console.WriteLine("Kullanıcı Soyadi" + k.Soyad);
+                Console.WriteLine("Kullanıcı yas" + k.Yas);
+            }
+            
+
+        }
+    }
+
+    public class Kullanicilar
+    {
+
+        private string isim;
+        private string soyad;
+        private int yas;
+
+        public string Isim { get => isim; set => isim = value; }
+        public string Soyad { get => soyad; set => soyad = value; }
+        public int Yas { get => yas; set => yas = value; }
+    }
+}
